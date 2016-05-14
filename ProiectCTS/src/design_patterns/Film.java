@@ -1,16 +1,20 @@
 package design_patterns;
 
+import interfete.IStrategy;
+
 public class Film {
 	private String numeFilm;
 	private int an;
 	private int durata;
 	private String gen;
+	public IStrategy modPlata;
 	
-	public Film(String numeFilm, int an, int durata, String gen) {
+	public Film(String numeFilm, int an, int durata, String gen, IStrategy modPlata) {
 		this.numeFilm = numeFilm;
 		this.an = an;
 		this.durata = durata;
 		this.gen = gen;
+		this.modPlata = modPlata;
 	}
 	
 	public Film() {
@@ -18,6 +22,7 @@ public class Film {
 		this.an = 2016;
 		this.durata = 108;
 		this.gen = "Actiune, Aventura, Comedie";
+		this.modPlata = new Cash();
 	}
 
 	public Film setNumeFilm(String numeFilm) {
@@ -40,17 +45,25 @@ public class Film {
 		return this;
 	}
 	
+	public void setModPlata(IStrategy modPlata) {
+		this.modPlata = modPlata;
+	}
+	
+	public void modPlata() {
+		modPlata.execute();
+	}
+
 	public void cereRezervare() {
 		System.out.println("Filmul: " + numeFilm + " a fost selectat!");
 	}
 	
 	public void rezervareOK() {
-		System.out.println("Locurile la filmul: " + numeFilm + " au fost rezervat!");
+		System.out.println("Locurile la filmul: " + numeFilm + " au fost rezervate!");
 	}
 	
 	@Override
 	public String toString() {
-		return "Filmul: " + numeFilm + ", an: " + an + ", durata: " + durata + " minute, gen: " + gen + ".";
+		return "Filmul: " + numeFilm + ", an: " + an + ", durata: " + durata + " minute, gen: " + gen + ", stil plata: " + ".";
 	}
 	
 }

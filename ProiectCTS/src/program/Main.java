@@ -1,9 +1,12 @@
 package program;
 
+import design_patterns.Card;
 import design_patterns.Film;
 import design_patterns.FilmBuilder;
 import design_patterns.Rezervare;
 import design_patterns.Singleton_FereastraFilm;
+import design_patterns.TransferBancar;
+import interfete.IStrategy;
 
 public class Main {
 
@@ -33,7 +36,14 @@ public class Main {
 		System.out.println("FACADE*******************************");
 		
 		Rezervare R = new Rezervare();
-		R.rezervaLocuriFilm("Zootropolis", 2016, 108, "Actiune, Animatie, Aventura", 4, "Bucuresti AFI");
+		IStrategy S = new Card();
+		R.rezervaLocuriFilm("Zootropolis", 2016, 108, "Actiune, Animatie, Aventura", S, 4, "Bucuresti AFI");
+		
+		//STRATEGY
+		System.out.println("STRATEGY*****************************");
+		F2.modPlata();
+		F1.setModPlata(new TransferBancar());
+		F1.modPlata();
 	}
 
 }
