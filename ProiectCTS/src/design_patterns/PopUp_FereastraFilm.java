@@ -30,10 +30,9 @@ public class PopUp_FereastraFilm extends JFrame{
 			
 			long rez = ((date1.getTime().getTime() - date2.getTime().getTime()) / (1000 * 60 * 60 * 24));
 		
-			JLabel label = new JLabel("Au mai ramas " + String.valueOf(rez) + " zile pana la premiera filmului!");
+			JLabel label = new JLabel("Au mai ramas " + String.valueOf(rez + 1) + " zile pana la premiera filmului!");
 			label.setBounds(10, 10, 200, 100);
 			this.add(label);
-			System.out.println(rez);
 			
 			this.setVisible(true);
 		} catch (ParseException e) {
