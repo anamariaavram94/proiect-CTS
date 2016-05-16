@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import design_patterns.Comanda;
 import design_patterns.Film;
 import design_patterns.Loc;
 
@@ -57,5 +58,36 @@ public class Testare {
 		}
 	}
 
+	@Test
+	public void testTotalComanda() {
+		Comanda C1 = new Comanda();
+		assertEquals(60, C1.totalComanda(2, 2, 0, 0), 0.1);
+		assertNotEquals(43, C1.totalComanda(1, 2, 0, 3));
+	}
 	
+	@Test
+	public void testNrBileteNegativ() {
+		Comanda C2 = new Comanda();
+		try {
+			double rez = C2.totalComanda(-1, 4, 0, 0);
+			fail("Eroare!");
+		} catch(Exception e) {
+		}
+	}
+	
+	@Test
+	public void testNrBileteInvalid() {
+		Comanda C3 = new Comanda();
+		try {
+			double rez = C3.totalComanda(31, 4, 0, 0);
+			fail("Eroare!");
+		} catch(Exception e) {
+		}
+	}
+	
+	@Test
+	public void testDiscount() {
+		Comanda C4 = new Comanda();
+		assertTrue(C4.acordareDiscountFete("feminin"));
+	}
 }
