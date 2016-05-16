@@ -61,6 +61,11 @@ public class Film {
 		System.out.println("Locurile la filmul: " + numeFilm + " au fost rezervate!");
 	}
 	
+	public double calculNota(double notaScenariu, double notaCalitateImagine, double notaPoveste) {
+		double notaFinala = notaScenariu * 0.3 + notaCalitateImagine * 0.3 + notaPoveste * 0.4;
+		return notaFinala;
+	}
+	
 	@Override
 	public String toString() {
 		return "Filmul: " + numeFilm + ", an: " + an + ", durata: " + durata + " minute, gen: " + gen + ", stil plata: " + ".";

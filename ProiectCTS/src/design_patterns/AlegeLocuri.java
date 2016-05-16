@@ -11,7 +11,7 @@ public class AlegeLocuri {
 		this.nrLocuri = nrLocuri;
 		this.locuri = new ArrayList<Loc>();
 		for(int i = 0; i < nrLocuri; i++) {
-			locuri.add(new Loc("L" + (i+1)));
+			locuri.add(new Loc((i+1)));
 		}
 	}
 	
